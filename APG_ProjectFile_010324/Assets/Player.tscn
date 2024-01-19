@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://dethry3fyrq05"]
+
+[ext_resource type="PackedScene" uid="uid://b4suvbg8ya2o7" path="res://Components/player_sprite_component.tscn" id="2_1jljg"]
+[ext_resource type="Texture2D" uid="uid://buxcacs680dro" path="res://Art/APG_CloakedSpriteV1.png" id="2_2r25h"]
+[ext_resource type="PackedScene" uid="uid://d1v1ibqm7t3w1" path="res://Assets/gun_test.tscn" id="3_rusrs"]
+[ext_resource type="PackedScene" uid="uid://b1d47ak41ngx6" path="res://Components/player_movement_compnent.tscn" id="4_kcfvc"]
+[ext_resource type="PackedScene" uid="uid://dnnccuhwtm42t" path="res://Components/player_hurtbox_component.tscn" id="5_3y724"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oqwq1"]
+size = Vector2(20.1005, 18.4071)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 2)
+scale = Vector2(0.995, 2.825)
+shape = SubResource("RectangleShape2D_oqwq1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.500002, 0.500005)
+scale = Vector2(0.894, 0.894)
+texture = ExtResource("2_2r25h")
+
+[node name="Player_Sprite_Component" parent="." node_paths=PackedStringArray("player", "sprite") instance=ExtResource("2_1jljg")]
+player = NodePath("..")
+sprite = NodePath("../Sprite2D")
+
+[node name="Player_Movement_Compnent" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_kcfvc")]
+player = NodePath("..")
+
+[node name="Player_Hurtbox_Component" parent="." instance=ExtResource("5_3y724")]
+
+[node name="Gun" parent="." instance=ExtResource("3_rusrs")]
+position = Vector2(-3.8147e-06, 1)
+scale = Vector2(0.43, 0.43)

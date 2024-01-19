@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqmqmycyx3jch"]
+
+[ext_resource type="Script" path="res://Scripts/shooting_gun_test.gd" id="1_m8trx"]
+[ext_resource type="PackedScene" uid="uid://cjgo3wiy6tl18" path="res://Assets/sentury_bullet.tscn" id="2_oj08l"]
+[ext_resource type="Texture2D" uid="uid://lk1m0487gjqq" path="res://Art/Temp_Gun.png" id="2_vpce1"]
+
+[node name="Sentury" type="StaticBody2D"]
+script = ExtResource("1_m8trx")
+bullet = ExtResource("2_oj08l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 0)
+texture = ExtResource("2_vpce1")
+centered = false
+offset = Vector2(30, -30)
+
+[node name="bulletPoint" type="Marker2D" parent="."]
+position = Vector2(78, -2)

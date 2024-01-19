@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4oyb0vlwhh8k"]
+
+[ext_resource type="Script" path="res://Scripts/Enemy_State_Mechine/enemy_ide_statel.gd" id="1_7n31c"]
+
+[node name="Enemy_Idel_State" type="Node" node_paths=PackedStringArray("enemy")]
+script = ExtResource("1_7n31c")
+enemy = NodePath("")

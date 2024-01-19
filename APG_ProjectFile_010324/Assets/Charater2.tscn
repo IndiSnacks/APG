@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://dipoxfg8vyc7s"]
+
+[ext_resource type="Script" path="res://Scripts/Component_Code/Player_Movement_Compnent.gd" id="1_hq677"]
+[ext_resource type="Texture2D" uid="uid://rdkqrgxy6bkc" path="res://Art/APG_BuffEnemy.png" id="2_4uguh"]
+[ext_resource type="PackedScene" uid="uid://b1d47ak41ngx6" path="res://Components/player_movement_compnent.tscn" id="3_n1ool"]
+[ext_resource type="PackedScene" uid="uid://b4suvbg8ya2o7" path="res://Components/player_sprite_component.tscn" id="4_271e6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_govpe"]
+size = Vector2(54, 56)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_hq677")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_4uguh")
+
+[node name="Player_Movement_Compnent" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_n1ool")]
+player = NodePath("..")
+
+[node name="Player_Sprite_Component" parent="." node_paths=PackedStringArray("player", "sprite") instance=ExtResource("4_271e6")]
+player = NodePath("..")
+sprite = NodePath("../Sprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 4)
+shape = SubResource("RectangleShape2D_govpe")

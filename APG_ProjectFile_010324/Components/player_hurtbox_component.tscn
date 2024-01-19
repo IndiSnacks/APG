@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://dnnccuhwtm42t"]
+
+[ext_resource type="Script" path="res://Scripts/Component_Code/player_hurtbox_component.gd" id="1_7hdru"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_26g6i"]
+bg_color = Color(1, 0.894118, 0.882353, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ksk54"]
+bg_color = Color(1, 0, 0.156863, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v5l8s"]
+radius = 9.05214
+
+[node name="Player_Hurtbox_Component" type="Node2D" node_paths=PackedStringArray("progressbar")]
+script = ExtResource("1_7hdru")
+progressbar = NodePath("Health")
+
+[node name="Health" type="ProgressBar" parent="."]
+offset_left = -16.0
+offset_top = -32.0
+offset_right = 18.0
+offset_bottom = -27.0
+theme_override_styles/background = SubResource("StyleBoxFlat_26g6i")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ksk54")
+max_value = 3.0
+step = 1.0
+value = 2.0
+show_percentage = false
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="Hurtbox_Collider" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(7.62939e-06, 3)
+scale = Vector2(0.995, 2.825)
+shape = SubResource("CircleShape2D_v5l8s")
+debug_color = Color(0.67451, 0.376471, 0.862745, 0.419608)
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3wlipvuc1lww"]
+
+[ext_resource type="PackedScene" uid="uid://ciyp77b8kfgc8" path="res://Assets/platform.tscn" id="1_1h3fp"]
+[ext_resource type="PackedScene" uid="uid://dethry3fyrq05" path="res://Assets/Player_test.tscn" id="2_sfe2l"]
+[ext_resource type="PackedScene" uid="uid://dqmqmycyx3jch" path="res://Assets/sentury.tscn" id="3_m13pb"]
+[ext_resource type="PackedScene" uid="uid://h8vxe10x8owq" path="res://Assets/enemy_test.tscn" id="6_hvvba"]
+[ext_resource type="PackedScene" uid="uid://cp7l3g5ojxh8s" path="res://Assets/heal_bullet.tscn" id="6_o2dc1"]
+
+[node name="ColorRect" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 2217.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.615686, 0.639216, 1, 1)
+
+[node name="Sentury" parent="." instance=ExtResource("3_m13pb")]
+position = Vector2(-29, 599)
+
+[node name="Player" parent="." instance=ExtResource("2_sfe2l")]
+position = Vector2(145, -78)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="Platform" parent="." instance=ExtResource("1_1h3fp")]
+position = Vector2(2, 637)
+scale = Vector2(20, 1)
+
+[node name="Platform2" parent="." instance=ExtResource("1_1h3fp")]
+position = Vector2(870, 222)
+rotation = 1.5708
+
+[node name="Platform7" parent="." instance=ExtResource("1_1h3fp")]
+position = Vector2(3383, 44)
+rotation = 1.5708
+scale = Vector2(1.435, 1)
+
+[node name="Platform14" parent="." instance=ExtResource("1_1h3fp")]
+position = Vector2(8458, 23)
+rotation = 1.5708
+scale = Vector2(1.435, 1)
+
+[node name="Platform6" parent="." instance=ExtResource("1_1h3fp")]
+position = Vector2(3079, 225)
+rotation = 1.5708
+
+[node name="Platform3" parent="." instance=ExtResource("1_1h3fp")]
+position = Vector2(215, 398)
+
+[node name="Platform4" parent="." instance=ExtResource("1_1h3fp")]
+position = Vector2(1027, 244)
+
+[node name="Platform5" parent="." instance=ExtResource("1_1h3fp")]
+position = Vector2(1541, 388)
+
+[node name="Platform8" parent="." instance=ExtResource("1_1h3fp")]
+position = Vector2(8, -5)
+
+[node name="Platform9" parent="." instance=ExtResource("1_1h3fp")]
+position = Vector2(3624, 328)
+
+[node name="Platform10" parent="." instance=ExtResource("1_1h3fp")]
+position = Vector2(4332, -387)
+
+[node name="Platform11" parent="." instance=ExtResource("1_1h3fp")]
+position = Vector2(6453, -181)
+
+[node name="Platform12" parent="." instance=ExtResource("1_1h3fp")]
+position = Vector2(7717, 271)
+
+[node name="Platform13" parent="." instance=ExtResource("1_1h3fp")]
+position = Vector2(5550, -613)
+
+[node name="Sentury2" parent="." instance=ExtResource("3_m13pb")]
+position = Vector2(-26, 351)
+bullet = ExtResource("6_o2dc1")
+
+[node name="Buff_enemy" parent="." instance=ExtResource("6_hvvba")]
+position = Vector2(5287, 470)
+scale = Vector2(5, 5)
