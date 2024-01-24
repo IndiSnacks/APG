@@ -7,6 +7,8 @@ size = Vector2(7.77982, 10)
 
 [node name="Platform" type="StaticBody2D" groups=["solidObject"]]
 position = Vector2(1, 2)
+collision_layer = 3
+collision_mask = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="." groups=["solidObject"]]
 position = Vector2(211.25, 40.75)

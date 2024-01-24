@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://h8vxe10x8owq"]
+[gd_scene load_steps=9 format=3 uid="uid://h8vxe10x8owq"]
 
 [ext_resource type="Script" path="res://Scripts/enemy_test.gd" id="1_1e31l"]
 [ext_resource type="Texture2D" uid="uid://rdkqrgxy6bkc" path="res://Art/APG_BuffEnemy.png" id="1_jksju"]
@@ -8,9 +8,14 @@
 [ext_resource type="PackedScene" uid="uid://caq7t40v0ff1t" path="res://Components/health__component.tscn" id="6_iiq24"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nn3nr"]
-size = Vector2(58, 57)
+size = Vector2(54, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ttkel"]
+size = Vector2(24.9856, 27.2911)
 
 [node name="Buff_enemy" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_1e31l")
 sprite = NodePath("Sprite2D")
 
@@ -21,6 +26,17 @@ texture = ExtResource("1_jksju")
 position = Vector2(-1, 3.5)
 shape = SubResource("RectangleShape2D_nn3nr")
 debug_color = Color(0.866667, 0.211765, 0.705882, 0.419608)
+
+[node name="Enemy_Hurtbox" type="Area2D" parent="."]
+
+[node name="Enenmy_Hurtbox_Collider" type="CollisionShape2D" parent="Enemy_Hurtbox"]
+position = Vector2(0, 2.815)
+scale = Vector2(2.19, 2.19)
+shape = SubResource("RectangleShape2D_ttkel")
+debug_color = Color(0.94902, 0, 0.572549, 0.419608)
+
+[node name="Health _Component" parent="." instance=ExtResource("6_iiq24")]
+maxHealth = 10
 
 [node name="State_Mechine" type="Node2D" parent="." node_paths=PackedStringArray("init_state")]
 script = ExtResource("3_5t6f5")
@@ -33,6 +49,3 @@ enemy = NodePath("../..")
 [node name="Enemy_Follow_State" type="Node" parent="State_Mechine" node_paths=PackedStringArray("enemy")]
 script = ExtResource("5_fmljm")
 enemy = NodePath("../..")
-
-[node name="Health _Component" parent="." instance=ExtResource("6_iiq24")]
-maxHealth = 10
