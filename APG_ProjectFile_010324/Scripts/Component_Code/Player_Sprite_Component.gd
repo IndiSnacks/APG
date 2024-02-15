@@ -8,7 +8,7 @@ func _ready():
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if player.velocity.x < 0:		sprite.flip_h = true
 	elif player.velocity.x > 0:
 		sprite.flip_h = false 

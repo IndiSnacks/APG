@@ -28,7 +28,8 @@ sprite = NodePath("../Sprite2D")
 [node name="Player_Movement_Compnent" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_kcfvc")]
 player = NodePath("..")
 
-[node name="Player_Hurtbox_Component" parent="." instance=ExtResource("5_3y724")]
+[node name="Player_Hurtbox_Component" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_3y724")]
+player = NodePath("..")
 
 [node name="Gun" parent="." instance=ExtResource("3_rusrs")]
 position = Vector2(-3.8147e-06, 1)

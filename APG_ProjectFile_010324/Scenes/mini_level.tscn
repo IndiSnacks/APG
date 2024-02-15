@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpcdrcryfavyr"]
+
+[ext_resource type="PackedScene" uid="uid://ciyp77b8kfgc8" path="res://Assets/platform.tscn" id="1_2xyeu"]
+[ext_resource type="PackedScene" uid="uid://dethry3fyrq05" path="res://Assets/Player.tscn" id="2_276rw"]
+
+[node name="ColorRect" type="ColorRect"]
+offset_right = 703.0
+offset_bottom = 382.0
+color = Color(0.0392157, 0.368627, 0.478431, 1)
+
+[node name="Platform" parent="." instance=ExtResource("1_2xyeu")]
+position = Vector2(11, 293)
+
+[node name="Platform2" parent="." instance=ExtResource("1_2xyeu")]
+position = Vector2(343, 77)
+
+[node name="Player" parent="." instance=ExtResource("2_276rw")]
+position = Vector2(534, 45)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(371, 194)
+zoom = Vector2(1.46, 1.46)

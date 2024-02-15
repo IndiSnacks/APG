@@ -1,13 +1,14 @@
 extends CharacterBody2D
 
-@export var sprite = Sprite2D
+var s
 
-func _physics_process(delta):
+func _ready():
+	s = scale.x
+
+func _physics_process(_delta):
 	move_and_slide()
-	
 	if velocity.x < 0:
-		sprite.flip_h = true
-	else:
-		sprite.flip_h = false
-		
+		scale.x = s
+	elif velocity.x >= 0:
+		scale.x = -s
 

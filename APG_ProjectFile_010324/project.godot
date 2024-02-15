@@ -12,6 +12,7 @@ config_version=5
 
 config/name="Apg Project File 010324"
 config/features=PackedStringArray("4.2", "Forward Plus")
+run/max_fps=60
 config/icon="res://Art/icon.svg"
 
 [autoload]
