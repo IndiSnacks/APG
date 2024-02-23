@@ -1,14 +1,20 @@
 extends CharacterBody2D
 
-var s
+@export var sprite = Sprite2D
+
+var direction 
+
+signal facing(facingRight)
 
 func _ready():
-	s = scale.x
+	pass
 
 func _physics_process(_delta):
 	move_and_slide()
-	if velocity.x < 0:
-		scale.x = s
-	elif velocity.x >= 0:
-		scale.x = -s
-
+	direction = velocity.normalized().x
+	if(direction > 0):
+		sprite.flip_h = false
+		facing.emit(false)
+	else:
+		sprite.flip_h = true
+		facing.emit(true)
